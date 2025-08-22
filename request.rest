@@ -1,0 +1,27 @@
+### Create a new poll
+POST http://localhost:3000/api/v1/polls
+Content-Type: application/json
+
+{
+  "question": "What is the best JS framework?",
+  "options": ["react", "vue", "svelte", "angular"]
+}
+
+### Get all polls
+GET http://localhost:3000/api/v1/polls
+
+### Get a single poll
+GET http://localhost:3000/api/v1/polls/PASTE_VALID_ID_HERE
+
+### Vote on Poll
+POST http://localhost:3000/api/v1/votes
+Content-Type: application/json
+
+{
+  "pollId": "PASTE_VALID_ID_HERE",
+  "option": "react",
+  "voter": "narda@example.com"
+}
+
+### View results for a poll
+GET http://localhost:3000/api/v1/votes/PASTE_VALID_ID_HERE
