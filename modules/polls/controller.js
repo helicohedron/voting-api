@@ -4,7 +4,8 @@ export async function getAll(req, res) {
   const allPolls = await Poll.find();
 
   res.json({
-    success: 'Retrieved all polls',
+    success: true,
+    message: 'Retrieved all polls',
     data: allPolls,
   });
 }
@@ -26,25 +27,46 @@ export async function create(req, res) {
   try {
     await poll.save();
   } catch (error) {
-    res.status(400).json({
-      error: 'Something went wrong',
+    return res.status(400).json({
+      success: false,
+      message: 'Something went wrong',
       details: error,
     });
   };
   
   // RESPONSE created status with poll
   res.status(201).json({
-    success: 'Successfully created poll',
+    success: true,
+    message: 'Successfully created poll',
     // newly add poll
+    data: poll,
   });
-}
+};
 
 export async function getOne(req, res) {
   // FIND poll from req.params
-  // IF NON then response 404
-  // OTHERWISE response the poll
-  res.json({
-    success: 'Successfully get one poll',
-    // find poll
-  });
-}
+  try {
+    const { id } = req.params;
+    const foundPoll = await Poll.findById(id);
+    // IF NON then response 404
+    if (!foundPoll) {
+      res.status(404).json({
+        success: false,
+        message: 'Poll cannot be found',
+      });
+    }
+    // OTHERWISE response the poll
+    res.json({
+      success: true,
+      message: 'Successfully retrieved poll',
+      // find poll
+      data: foundPoll,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: 'Something went wrong.',
+      details: error,
+    });
+  };
+};
