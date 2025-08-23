@@ -2,6 +2,14 @@ import { Vote } from './model.js';
 
 export async function create(req,res) {
   const { pollId, option, voter } = req.body;
+  
+  const existingVoter = await Vote.find({voter});
+  if (existingVoter) {
+    return res.status(400).json({
+      success: false,
+      message: 'ERROR: Voter has already cast a vote',
+    });
+  };
 
   const vote = new Vote({
     pollId,
@@ -9,7 +17,6 @@ export async function create(req,res) {
     voter,
   });
 
-  console.log(vote);
   
   try {
     await vote.save();
