@@ -13,13 +13,13 @@ export async function getAll(req, res) {
 // Add more logic
 export async function create(req, res) {
   // GET all fields needed from req.body
-  const { question, options, status, timestamp } = req.body;
+  const { question, options, status, timestamps } = req.body;
 
   const poll = new Poll({
     question,
     options,
     status,
-    timestamp,
+    timestamps,
   });
 
   // ATTEMPT to save
@@ -50,20 +50,20 @@ export async function getOne(req, res) {
     const foundPoll = await Poll.findById(id);
     // IF NON then response 404
     if (!foundPoll) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: 'Poll cannot be found',
       });
     }
-    // OTHERWISE response the poll
-    res.json({
+    // OTHERWISE respond with the poll
+    return res.json({
       success: true,
       message: 'Successfully retrieved poll',
       // find poll
       data: foundPoll,
     });
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
       message: 'Something went wrong.',
       details: error,

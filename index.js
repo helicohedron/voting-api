@@ -3,6 +3,7 @@ import express from 'express';
 import { connect } from 'mongoose';
 import process from 'node:process';
 import pollRoutes from './modules/polls/routes.js';
+import voteRoutes from './modules/votes/routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.set('port', PORT);
 
 app.use('/api/v1/polls', pollRoutes);
+app.use('api/v1/votes', voteRoutes);
 // Add other routes
 
 app.listen(PORT, () => {
