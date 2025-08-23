@@ -13,13 +13,12 @@ export async function getAll(req, res) {
 // Add more logic
 export async function create(req, res) {
   // GET all fields needed from req.body
-  const { question, options, status, timestamps } = req.body;
+  const { question, options, status } = req.body;
 
   const poll = new Poll({
     question,
     options,
     status,
-    timestamps,
   });
 
   // ATTEMPT to save
@@ -43,7 +42,7 @@ export async function create(req, res) {
   });
 };
 
-export async function getOne(req, res) {
+export async function getOnePoll(req, res) {
   // FIND poll from req.params
   try {
     const { id } = req.params;

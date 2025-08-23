@@ -11,17 +11,27 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/polls
 
 ### Get a single poll
-GET http://localhost:3000/api/v1/polls/PASTE_VALID_ID_HERE
+GET http://localhost:3000/api/v1/polls/68a962b9d7abc9431a2a0973
 
 ### Vote on Poll
 POST http://localhost:3000/api/v1/votes
 Content-Type: application/json
 
 {
-  "pollId": "PASTE_VALID_ID_HERE",
+  "pollId": "68a962b9d7abc9431a2a0973",
   "option": "react",
   "voter": "narda@example.com"
 }
 
+### Vote on Poll
+POST http://localhost:3000/api/v1/votes
+Content-Type: application/json
+
+{
+  "pollId": "68a962b9d7abc9431a2a0973",
+  "option": "vue",
+  "voter": "jason@example.com"
+}
+
 ### View results for a poll
-GET http://localhost:3000/api/v1/votes/PASTE_VALID_ID_HERE
+GET http://localhost:3000/api/v1/votes/68a962b9d7abc9431a2a0973

@@ -2,7 +2,7 @@ import { model, Schema } from 'mongoose';
 
 const voteSchema = new Schema(
   {
-    pollID: {
+    pollId: {
       type: Schema.Types.ObjectId,
       ref: "Poll",
       required: true,
