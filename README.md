@@ -5,7 +5,7 @@
 Clone as your own
 
 ```sh
-npx degit@latest https://github.com/UCC-Batch-26/voting-api.git voting-api
+npx degit@latest git@github.com:helicohedron/voting-api.git voting-api
 cd voting-api
 git init
 ```
