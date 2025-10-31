@@ -2,8 +2,6 @@
 
 ## Getting Started
 
-Clone as your own
-
 ```sh
 npx degit@latest https://github.com/UCC-Batch-26/voting-api.git voting-api
 cd voting-api
@@ -24,9 +22,9 @@ npm run dev
 
 ## Objective
 
-The goal of this project is build a backend REST API for simple **Online Voting System**. Users can create polls, vote on options, and view poll results. This system will demonstrate core CRUD operations and reinforce skills in designing relationships in MongoDB using Mongoose.
+The goal of this project is build a backend REST API for simple **Online Voting System**. Users can create polls, vote on options, and view poll results. This system demonstrates core CRUD operations and reinforces skills in designing relationships in MongoDB using Mongoose.
 
-## Key Learning Outcomes
+## Outcomes
 
 - Design and implement a relational schema using Mongoose
 - Create RESTful endpoints using Express
@@ -110,7 +108,7 @@ All Vote module must be in `modules/votes` directory only.
 | `POST` | `/api/v1/votes`     | Create a new poll      |
 | `GET`  | `/api/v1/votes/:id` | Get results for a poll |
 
-## Optional Enhancements
+## Possible Enhancements
 
 - Add ability to update poll's question or options
 - Add ability to soft delete polls by setting `status` to `archived`
