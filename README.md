@@ -2,6 +2,8 @@
 
 ## Getting Started
 
+This project was created with [[create-simple-express](https://github.com/jayaregalinada/create-simple-express)]
+
 ```sh
 npx degit@latest git@github.com:helicohedron/voting-api.git voting-api
 cd voting-api
